@@ -24,7 +24,7 @@ public class CouponExpirationDailyJob implements Runnable {
 	public void run() {
 		while (!quit) {
 			try {
-
+				System.out.println(quit);
 				couponsDAO.deleteCoupon(couponsDAO.getExpired());
 
 				Thread.sleep(1000 * 60 * 60 * 24);
@@ -41,7 +41,9 @@ public class CouponExpirationDailyJob implements Runnable {
 
 	public void stop() {
 		System.out.println("stopped");
+		Thread.currentThread().interrupt();
 		quit = true;
 
 	}
+
 }

@@ -14,9 +14,7 @@ import com.couponSystem.classes.ClientType;
 import com.couponSystem.classes.CouponExpirationDailyJob;
 import com.couponSystem.classes.CouponSystemException;
 import com.couponSystem.classes.EndDate;
-import com.couponSystem.dao.CouponsDAO;
 import com.couponSystem.dbdao.CompaniesDBDAO;
-import com.couponSystem.dbdao.CouponDBDAO;
 import com.couponSystem.dbdao.CustomerDBDAO;
 import com.couponSystem.facade.AdminFacade;
 import com.couponSystem.facade.CompanyFacade;
@@ -25,14 +23,15 @@ import com.couponSystem.pool.LoginManager;
 
 public class Test {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws CouponSystemException {
 
 		Scanner sc = new Scanner(System.in);
 		Scanner sc1 = new Scanner(System.in);
 		String op = "";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		CouponsDAO co = new CouponDBDAO();
-		Thread expire = new Thread(new CouponExpirationDailyJob());
+		CouponExpirationDailyJob couponExpirationDailyJob = new CouponExpirationDailyJob();
+		Thread expire = new Thread(couponExpirationDailyJob);
 		expire.start();
 		CompaniesDBDAO codb = new CompaniesDBDAO();
 		CustomerDBDAO cudb = new CustomerDBDAO();
@@ -445,8 +444,7 @@ public class Test {
 			if (op.equals("quit")) {
 				sc.close();
 				System.out.println("good bye");
-				expire.stop();
-				expire.interrupt();
+				couponExpirationDailyJob.stop();
 				System.exit(0);
 			}
 		}
