@@ -38,7 +38,7 @@ public class DbdaosTest1 {
 //		try {
 //			cd.addCompany(company);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		test successfully
@@ -46,20 +46,20 @@ public class DbdaosTest1 {
 //		try {
 //			cd.isCompanyExists("bbb@bbc.com", "aaa111");
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		try {
 //			cd.getAllCompanies();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			cd.isCompanyExists("bbb@bbc11.com", "aaa111");
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		test successfully
@@ -67,7 +67,7 @@ public class DbdaosTest1 {
 //		try {
 //			cd.updateCompany(company);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		test successfully
@@ -75,7 +75,7 @@ public class DbdaosTest1 {
 //		try {
 //			cd.deleteCompany(8);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		test successfully
@@ -83,7 +83,7 @@ public class DbdaosTest1 {
 //		try {
 //			cd.getOneCompany(3);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		test successfully
@@ -91,7 +91,7 @@ public class DbdaosTest1 {
 //		try {
 //			cd.getCompanyCoupons(1);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		test successfully
@@ -103,7 +103,7 @@ public class DbdaosTest1 {
 //			System.out.println("-------------------------");
 //			System.out.println(cu.isCustomerExists("1a.m7md.f@gmail.com", "1231m"));
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		test successfully
@@ -112,7 +112,7 @@ public class DbdaosTest1 {
 //		try {
 //			cu.addCustomer(customer);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		test successfully
@@ -120,126 +120,126 @@ public class DbdaosTest1 {
 //		try {
 //			cu.updateCustomer(cus);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		passed
 //		try {
 //			cu.deleteCustomer(5);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		passed
 //		try {
 //			cu.getAllCustomers();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		passed
 //		try {
 //			cu.getOneCustomer(4);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		passed
 //		try {
 //			cu.getAllCoupons();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		passed
 //		try {
 //			cu.getCouponsByCategoryID(10);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 ////		passed
 //		try {
 //			cu.CustomerVsCouponExists(cus, coupon);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			cu.purCoupon(coupon, cus);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passes
 //		try {
 //			db.addCupon(coupon);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			db.updateCoupon(coupon);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			db.deleteCoupon(2);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			db.getAllCoupons();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			db.getOneCoupon(4);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			db.couponExists("15% off");
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			db.getCustomerCoupons(3);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			db.dates();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			db.getExpired();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			db.deleteCusVsCou(3);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed

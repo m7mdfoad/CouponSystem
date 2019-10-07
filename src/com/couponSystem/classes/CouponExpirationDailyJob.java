@@ -9,6 +9,14 @@ public class CouponExpirationDailyJob implements Runnable {
 	private boolean quit = false;
 	private CouponsDAO couponsDAO = new CouponDBDAO();
 	ConnectionPool connectionPool;
+	Thread thread;
+
+	/**
+	 * @param thread the thread to set
+	 */
+	public void setThread(Thread thread) {
+		this.thread = thread;
+	}
 
 	public CouponExpirationDailyJob() {
 
@@ -22,9 +30,10 @@ public class CouponExpirationDailyJob implements Runnable {
 	}
 
 	public void run() {
-		while (!quit) {
+		while (quit == false) {
 			try {
 				System.out.println(quit);
+				couponsDAO.deleteCusVsCou(couponsDAO.getExpired());
 				couponsDAO.deleteCoupon(couponsDAO.getExpired());
 
 				Thread.sleep(1000 * 60 * 60 * 24);
@@ -32,7 +41,6 @@ public class CouponExpirationDailyJob implements Runnable {
 			} catch (CouponSystemException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {
-				e.printStackTrace();
 				break;
 			}
 		}
@@ -41,8 +49,8 @@ public class CouponExpirationDailyJob implements Runnable {
 
 	public void stop() {
 		System.out.println("stopped");
-		Thread.currentThread().interrupt();
 		quit = true;
+		thread.interrupt();
 
 	}
 

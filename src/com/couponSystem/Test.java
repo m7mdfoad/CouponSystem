@@ -19,6 +19,7 @@ import com.couponSystem.dbdao.CustomerDBDAO;
 import com.couponSystem.facade.AdminFacade;
 import com.couponSystem.facade.CompanyFacade;
 import com.couponSystem.facade.CustomerFacade;
+import com.couponSystem.pool.ConnectionPool;
 import com.couponSystem.pool.LoginManager;
 
 public class Test {
@@ -32,6 +33,7 @@ public class Test {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		CouponExpirationDailyJob couponExpirationDailyJob = new CouponExpirationDailyJob();
 		Thread expire = new Thread(couponExpirationDailyJob);
+		couponExpirationDailyJob.setThread(expire);
 		expire.start();
 		CompaniesDBDAO codb = new CompaniesDBDAO();
 		CustomerDBDAO cudb = new CustomerDBDAO();
@@ -66,7 +68,7 @@ public class Test {
 			cuf = (CustomerFacade) lm.login(user, pass, ClientType.valueOf(type));
 		} else
 			main(args);
-		while (op != "quit") {
+		while (!op.equals("quit")) {
 			op = sc.nextLine();
 			if (adminF == true) {
 				if (op.equals("getAllCompanies")) {
@@ -441,13 +443,18 @@ public class Test {
 				}
 
 			}
-			if (op.equals("quit")) {
-				sc.close();
-				System.out.println("good bye");
-				couponExpirationDailyJob.stop();
-				System.exit(0);
-			}
 		}
+		if (op.equals("quit")) {
+			System.out.println("good bye");
+			couponExpirationDailyJob.stop();
+			try {
+				expire.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			ConnectionPool.getInstance().closeAllConnections();
+		}
+
 	}
 
 }

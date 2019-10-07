@@ -34,56 +34,56 @@ public class FacadeTest {
 //		try {
 //			adminFacade.deleteCompany(11);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.addCompany(company);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.updateCompany(company);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.isCompanyExists("zaza@zaz.com", "zaz123");
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.getOneCompany(3);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.getAllCompanies();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.deleteCompany(16);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.getCompanyCoupons(15);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
@@ -91,34 +91,34 @@ public class FacadeTest {
 //		try {
 //			adminFacade.updateCustomer(customer);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.isCustomerExists("muh@gmail.com", "m123");
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.getOneCustomer(5);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.getAllCustomers();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		try {
 //			adminFacade.deleteCustomer(8);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
@@ -126,7 +126,7 @@ public class FacadeTest {
 //		try {
 //			adminFacade.addCustomer(customer);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
@@ -137,28 +137,28 @@ public class FacadeTest {
 //		try {
 //			adminFacade.updateCoupon(coupon);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.getOneCoupon(7);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.getAllCoupons();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.deleteCoupon(5);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
@@ -169,21 +169,21 @@ public class FacadeTest {
 //		try {
 //			adminFacade.addCupon(coupon);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			System.out.println(adminFacade.couponExists("game o1f thrones"));
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			adminFacade.getExpired();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
@@ -196,7 +196,6 @@ public class FacadeTest {
 		try {
 			customerFacade.login("muh@gmail.com", "m123");
 		} catch (CouponSystemException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -213,42 +212,42 @@ public class FacadeTest {
 //		try {
 //			customerFacade.getCustomerCoupons();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			customerFacade.getCustomerCoupons(Category.BOOKS);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			customerFacade.getCustomerCoupons(11.00);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			customerFacade.getCustomerDetails();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			customerFacade.getCustomerID();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			System.out.println(customerFacade.isCustomerExists("muh@gmail.com", "m123"));
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
@@ -265,63 +264,63 @@ public class FacadeTest {
 //		try {
 //			companyFacade.login(company.getEmail(), company.getPassword());
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			companyFacade.addCoupon(coupon);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			companyFacade.updateCoupon(coupon1);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			// 
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			companyFacade.deleteCoupon(16);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			// 
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			companyFacade.getCompanyCoupons();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			companyFacade.getCompanyCoupons(Category.CARS);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			companyFacade.getCompanyCoupons(800.00);
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			companyFacade.getCompanyDetails();
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+
 //			e.printStackTrace();
 //		}
 //		passed
 //		try {
 //			System.out.println(companyFacade.getCompanyId());
 //		} catch (CouponSystemException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
 //		passed
