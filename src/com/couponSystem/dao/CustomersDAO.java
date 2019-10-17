@@ -22,9 +22,9 @@ public interface CustomersDAO {
 
 	List<Coupon> getAllCoupons() throws CouponSystemException;
 
-	Coupon getCouponsByCategoryID(int categoryID) throws CouponSystemException;
+	List<Coupon> getCouponsByCategoryID(int categoryID) throws CouponSystemException;
 
-	Coupon getCouponsByMaxPrice(double maxPrice) throws CouponSystemException;
+	List<Coupon> getCouponsByMaxPrice(double maxPrice) throws CouponSystemException;
 
 	void purCoupon(Coupon coupon, Customer customer) throws CouponSystemException;
 

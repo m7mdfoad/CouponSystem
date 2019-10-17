@@ -88,4 +88,13 @@ public interface CompaniesDAO {
 	 * @throws CouponSystemException
 	 */
 	void deletePurchased(int companyId) throws CouponSystemException;
+
+	/**
+	 * 
+	 * @param id
+	 * @return coupon by id
+	 * @throws CouponSystemException
+	 */
+	Coupon getOneCoupon(int id, int companyId) throws CouponSystemException;
+
 }

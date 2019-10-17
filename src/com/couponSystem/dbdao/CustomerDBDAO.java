@@ -13,6 +13,7 @@ import com.couponSystem.beans.Category;
 import com.couponSystem.beans.Coupon;
 import com.couponSystem.beans.Customer;
 import com.couponSystem.classes.CouponSystemException;
+import com.couponSystem.dao.CouponsDAO;
 import com.couponSystem.dao.CustomersDAO;
 import com.couponSystem.pool.ConnectionPool;
 
@@ -128,6 +129,7 @@ public class CustomerDBDAO implements CustomersDAO {
 		String sql = "select * from customers";
 		Connection con = connectionPool.getConnection();
 		List<Customer> customer1 = new ArrayList<Customer>();
+		CouponsDAO couponsDAO = new CouponDBDAO();
 		try (Statement stmt = con.createStatement()) {
 			ResultSet rs = stmt.executeQuery(sql);
 			if (rs.next()) {
@@ -138,6 +140,7 @@ public class CustomerDBDAO implements CustomersDAO {
 					customer.setLastName(rs.getString("last_Name"));
 					customer.setEmail(rs.getString("email"));
 					customer.setPassword(rs.getString("password"));
+					customer.setCoupons((ArrayList<Coupon>) couponsDAO.getCustomerCoupons(id));
 					customer1.add(customer);
 					System.out.println(customer);
 				} while (rs.next());
@@ -166,6 +169,7 @@ public class CustomerDBDAO implements CustomersDAO {
 				customer.setLastName(rs.getString("last_Name"));
 				customer.setEmail(rs.getString("email"));
 				customer.setPassword(rs.getString("password"));
+				customer.setCoupons((ArrayList<Coupon>) getAllCoupons());
 				System.out.println(customer);
 			} else {
 				System.out.println("no customers with this id");
@@ -211,9 +215,10 @@ public class CustomerDBDAO implements CustomersDAO {
 	}
 
 	@Override
-	public Coupon getCouponsByCategoryID(int categoryID) throws CouponSystemException {
+	public List<Coupon> getCouponsByCategoryID(int categoryID) throws CouponSystemException {
 		String sql = "select * from coupons inner join categories c on coupons.CATEGORY_ID = c.ID where CATEGORY_ID=?";
 		Connection con = connectionPool.getConnection();
+		List<Coupon> customerCoupons = new ArrayList<>();
 		Coupon coupon = new Coupon(categoryID);
 		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
 			pstmt.setString(1, String.valueOf(categoryID));
@@ -230,6 +235,7 @@ public class CustomerDBDAO implements CustomersDAO {
 				coupon.setPrice(rs.getDouble("price"));
 				coupon.setImage(rs.getString("image"));
 				coupon.setCategory(Category.valueOf(rs.getString("name")));
+				customerCoupons.add(coupon);
 				System.out.println(coupon);
 			} else {
 				System.out.println("no coupons in this category");
@@ -240,13 +246,14 @@ public class CustomerDBDAO implements CustomersDAO {
 
 			connectionPool.restoreConnection(con);
 		}
-		return coupon;
+		return customerCoupons;
 	}
 
 	@Override
-	public Coupon getCouponsByMaxPrice(double maxPrice) throws CouponSystemException {
+	public List<Coupon> getCouponsByMaxPrice(double maxPrice) throws CouponSystemException {
 		String sql = "select * from coupons inner join categories c on coupons.CATEGORY_ID = c.ID where PRICE <=? ";
 		Connection con = connectionPool.getConnection();
+		List<Coupon> customercoupons = new ArrayList<>();
 		Coupon coupon = new Coupon();
 		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
 			pstmt.setDouble(1, maxPrice);
@@ -263,6 +270,7 @@ public class CustomerDBDAO implements CustomersDAO {
 				coupon.setPrice(rs.getDouble("price"));
 				coupon.setImage(rs.getString("image"));
 				coupon.setCategory(Category.valueOf(rs.getString("name")));
+				customercoupons.add(coupon);
 				System.out.println(coupon);
 
 			}
@@ -273,7 +281,7 @@ public class CustomerDBDAO implements CustomersDAO {
 
 			connectionPool.restoreConnection(con);
 		}
-		return coupon;
+		return customercoupons;
 	}
 
 	public void purCoupon(Coupon coupon, Customer customer) throws CouponSystemException {

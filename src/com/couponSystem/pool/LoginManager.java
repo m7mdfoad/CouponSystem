@@ -2,8 +2,6 @@ package com.couponSystem.pool;
 
 import java.util.Scanner;
 
-import javax.swing.JOptionPane;
-
 import com.couponSystem.classes.ClientType;
 import com.couponSystem.classes.CouponSystemException;
 import com.couponSystem.dao.CompaniesDAO;
@@ -57,18 +55,19 @@ public class LoginManager {
 				System.out.println("you are connected to the customer account");
 				return customerFacade;
 			}
-		} else {
-			System.out.println("wrong username or password");
-			String[] options = { "ADMINISTRATOR", "COMPANY", "CUSTOMER" };
-			System.out.println("enter username: ");
-			String user = sc.nextLine();
-			System.out.println("enter password: ");
-			String pass = sc.nextLine();
-			System.out.println("enter type: ");
-			String type = (String) JOptionPane.showInputDialog(null, "Choose one", "Input",
-					JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
-			login(user, pass, ClientType.valueOf(type));
+//		} else {
+//			System.out.println("wrong username or password");
+//			String[] options = { "ADMINISTRATOR", "COMPANY", "CUSTOMER" };
+//			System.out.println("enter username: ");
+//			String user = sc.nextLine();
+//			System.out.println("enter password: ");
+//			String pass = sc.nextLine();
+//			System.out.println("enter type: ");
+//			String type = (String) JOptionPane.showInputDialog(null, "Choose one", "Input",
+//					JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+//			login(user, pass, ClientType.valueOf(type));
 		}
+
 		return null;
 
 	}

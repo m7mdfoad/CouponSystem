@@ -30,7 +30,7 @@ public class DbdaosTest1 {
 		CompaniesDBDAO cd = new CompaniesDBDAO();
 		Customer cus = new Customer(3);
 		CustomerDBDAO cu = new CustomerDBDAO();
-		Company company = new Company("intel", "int@int.com", "int12");
+		Company company = new Company(15);
 		Coupon coupon = new Coupon(4, Category.CELLULAR, "15% off", "everything in the store", sdate, edate, 20, 14.99,
 				"aaa.jpg", 3, 10);
 		CouponDBDAO db = new CouponDBDAO();
@@ -108,7 +108,7 @@ public class DbdaosTest1 {
 //		}
 ////		test successfully
 //
-//		Customer customer = new Customer("abdallah1", "mrisat1", "abd1@abd.com", "abd12");
+		Customer customer = new Customer(1, "muhammad", "abu alhija", "muh@gmail.com", "m123");
 //		try {
 //			cu.addCustomer(customer);
 //		} catch (CouponSystemException e) {
@@ -148,7 +148,7 @@ public class DbdaosTest1 {
 //		try {
 //			cu.getAllCoupons();
 //		} catch (CouponSystemException e) {
-//			
+//
 //			e.printStackTrace();
 //		}
 ////		passed
@@ -216,9 +216,9 @@ public class DbdaosTest1 {
 //		}
 //		passed
 //		try {
-//			db.getCustomerCoupons(3);
+//			db.getCustomerCoupons(customer.getId());
 //		} catch (CouponSystemException e) {
-//			
+//
 //			e.printStackTrace();
 //		}
 //		passed
@@ -243,6 +243,13 @@ public class DbdaosTest1 {
 //			e.printStackTrace();
 //		}
 //		passed
+
+//		try {
+//			cd.getOneCoupon(13, company.getId());
+//		} catch (CouponSystemException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 		/*
 		 * all dbdaos passed successfully

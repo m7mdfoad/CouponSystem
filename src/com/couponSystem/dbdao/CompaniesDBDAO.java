@@ -136,6 +136,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
 					company.setName(rs.getString("name"));
 					company.setEmail(rs.getString("email"));
 					company.setPassword(rs.getString("password"));
+					company.setCoupons((ArrayList<Coupon>) getCompanyCoupons(id));
 					companies.add(company);
 					System.out.println(company);
 				} while (rs.next());
@@ -163,6 +164,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
 				company.setName(rs.getString("name"));
 				company.setEmail(rs.getString("email"));
 				company.setPassword(rs.getString("password"));
+				company.setCoupons((ArrayList<Coupon>) getCompanyCoupons(companyID));
 				System.out.println(company);
 			} else {
 				System.out.println("company isn't exists");
@@ -215,7 +217,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
 	@Override
 	public List<Coupon> getCompanyCoupons(Category category, int companyId) throws CouponSystemException {
 		String sql = "select * from coupons inner join categories c on coupons.CATEGORY_ID = c.ID where coupons.ID=? and NAME=?";
-		List<Coupon> comcou = new ArrayList<>();
+		List<Coupon> companycoupons = new ArrayList<>();
 		Connection con = connectionPool.getConnection();
 		try (PreparedStatement pstmt = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
 			Coupon coupon = new Coupon();
@@ -235,7 +237,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
 					coupon.setPrice(rs.getDouble("price"));
 					coupon.setImage(rs.getString("image"));
 					coupon.setCategory((Category.valueOf(rs.getString("name"))));
-					comcou.add(coupon);
+					companycoupons.add(coupon);
 					System.out.println(coupon);
 				} while (rs.next());
 			} else {
@@ -246,7 +248,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
 		} finally {
 			connectionPool.restoreConnection(con);
 		}
-		return comcou;
+		return companycoupons;
 
 	}
 
@@ -321,6 +323,40 @@ public class CompaniesDBDAO implements CompaniesDAO {
 		} finally {
 			connectionPool.restoreConnection(con);
 		}
+	}
+
+	@Override
+	public Coupon getOneCoupon(int id, int companyId) throws CouponSystemException {
+		String sql = "select * from coupons inner join categories c on coupons.CATEGORY_ID = c.ID where coupons.ID=? and COMPANY_ID=?";
+		Connection con = connectionPool.getConnection();
+		Coupon coupon = new Coupon();
+		try (PreparedStatement pstmt = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+			pstmt.setDouble(1, id);
+			pstmt.setInt(2, companyId);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				coupon.setId(rs.getInt("id"));
+				coupon.setTitle(rs.getString("title"));
+				coupon.setDescription(rs.getString("DESCRIPTION"));
+				coupon.setStartDate(rs.getDate("start_Date"));
+				coupon.setEndDate(rs.getDate("end_Date"));
+				coupon.setAmount(rs.getInt("amount"));
+				coupon.setCompanyID(rs.getInt("company_id"));
+				coupon.setCategoryID(rs.getInt("category_id"));
+				coupon.setPrice(rs.getDouble("price"));
+				coupon.setImage(rs.getString("image"));
+				coupon.setCategory((Category.valueOf(rs.getString("name"))));
+				System.out.println(coupon);
+
+			} else {
+				System.out.println("there are no coupons");
+			}
+		} catch (SQLException e) {
+			throw new CouponSystemException("we can't read company coupons", e);
+		} finally {
+			connectionPool.restoreConnection(con);
+		}
+		return coupon;
 	}
 
 }

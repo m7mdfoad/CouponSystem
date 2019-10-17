@@ -66,8 +66,9 @@ public class Test {
 			cof = (CompanyFacade) lm.login(user, pass, ClientType.valueOf(type));
 		} else if (custF == true) {
 			cuf = (CustomerFacade) lm.login(user, pass, ClientType.valueOf(type));
-		} else
+		} else {
 			main(args);
+		}
 		while (!op.equals("quit")) {
 			op = sc.nextLine();
 			if (adminF == true) {

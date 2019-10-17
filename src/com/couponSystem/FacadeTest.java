@@ -203,11 +203,11 @@ public class FacadeTest {
 		Date edate = Date.valueOf("2019-11-01");
 		Coupon coupon = new Coupon(15, Category.CARS, "Hyundai", "25% off", sdate, edate, 6, 499.99, "hyundai.jpg", 15,
 				11);
-		try {
-			customerFacade.purCoupon(coupon);
-		} catch (CouponSystemException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			customerFacade.purCoupon(coupon);
+//		} catch (CouponSystemException e) {
+//			e.printStackTrace();
+//		}
 //		passed
 //		try {
 //			customerFacade.getCustomerCoupons();

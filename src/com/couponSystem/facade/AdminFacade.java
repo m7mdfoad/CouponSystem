@@ -3,7 +3,6 @@ package com.couponSystem.facade;
 import java.util.List;
 import java.util.Scanner;
 
-import com.couponSystem.UIDemo;
 import com.couponSystem.beans.Company;
 import com.couponSystem.beans.Coupon;
 import com.couponSystem.beans.Customer;
@@ -16,25 +15,24 @@ import com.couponSystem.pool.ConnectionPool;
 public class AdminFacade extends ClientFacade {
 
 	ConnectionPool connectionPool;
-	UIDemo ui = new UIDemo();
 	Scanner sc = new Scanner(System.in);
 	String[] options = { "ADMINISTRATOR", "COMPANY", "CUSTOMER" };
 
 	@Override
 	public boolean login(String email, String password) {
 		if (email.equals("admin") && password.equals("1234")) {
-			System.out.println("enter 'help' for help");
+//			System.out.println("enter 'help' for help");
 			return true;
-		} else {
-			System.out.println("wrong username or password please try again");
-			System.out.println("enter username:");
-			String user = sc.nextLine();
-			System.out.println("enter password: ");
-			String pass = sc.nextLine();
-			System.out.println("enter type: ");
-			login(user, pass);
-			return true;
+//		} else {
+//			System.out.println("wrong username or password please try again");
+//			System.out.println("enter username:");
+//			String user = sc.nextLine();
+//			System.out.println("enter password: ");
+//			String pass = sc.nextLine();
+//			System.out.println("enter type: ");
+//			login(user, pass);
 		}
+		return false;
 	}
 
 	public AdminFacade(CompaniesDAO companiesDao, CustomersDAO customersDao, CouponsDAO couponsDao) {
@@ -102,7 +100,7 @@ public class AdminFacade extends ClientFacade {
 	}
 
 	public List<Coupon> getCompanyCoupons(int id) throws CouponSystemException {
-	
+
 		return companiesDao.getCompanyCoupons(id);
 	}
 

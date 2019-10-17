@@ -4,13 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import javax.swing.JOptionPane;
-
-import com.couponSystem.UIDemo;
 import com.couponSystem.beans.Category;
 import com.couponSystem.beans.Company;
 import com.couponSystem.beans.Coupon;
@@ -25,7 +21,6 @@ public class CompanyFacade extends ClientFacade {
 	private int companyId;
 	Company company = new Company();
 	ConnectionPool connectionPool;
-	UIDemo ui = new UIDemo();
 	Scanner sc = new Scanner(System.in);
 	String[] options = { "ADMINISTRATOR", "COMPANY", "CUSTOMER" };
 
@@ -54,15 +49,15 @@ public class CompanyFacade extends ClientFacade {
 				System.out.println("you are connected to companies");
 				return true;
 			} else {
-				System.out.println("wrong username or password please try again");
-				System.out.println("enter email:");
-				String user = sc.nextLine();
-				System.out.println("enter password: ");
-				String pass = sc.nextLine();
-				System.out.println("enter type: ");
-				JOptionPane.showInputDialog(null, "Choose one", "Input", JOptionPane.INFORMATION_MESSAGE, null, options,
-						options[0]);
-				login(user, pass);
+//				System.out.println("wrong username or password please try again");
+//				System.out.println("enter email:");
+//				String user = sc.nextLine();
+//				System.out.println("enter password: ");
+//				String pass = sc.nextLine();
+//				System.out.println("enter type: ");
+//				JOptionPane.showInputDialog(null, "Choose one", "Input", JOptionPane.INFORMATION_MESSAGE, null, options,
+//						options[0]);
+//				login(user, pass);
 				return false;
 			}
 		} catch (SQLException e) {
@@ -112,32 +107,34 @@ public class CompanyFacade extends ClientFacade {
 
 	}
 
-	public ArrayList<Coupon> getCompanyCoupons(Category category) throws CouponSystemException {
-		companiesDao.getCompanyCoupons(category, companyId);
-		return null;
+	public List<Coupon> getCompanyCoupons(Category category) throws CouponSystemException {
+		return companiesDao.getCompanyCoupons(category, companyId);
 
 	}
 
-	public ArrayList<Coupon> getCompanyCoupons(double maxPrice) throws CouponSystemException {
-		companiesDao.getCompanyCoupons(maxPrice, companyId);
-		return null;
+	public List<Coupon> getCompanyCoupons(double maxPrice) throws CouponSystemException {
+		return companiesDao.getCompanyCoupons(maxPrice, companyId);
 
 	}
 
 	public Company getCompanyDetails() throws CouponSystemException {
-		companiesDao.getOneCompany(companyId);
-		return null;
+		return companiesDao.getOneCompany(companyId);
 
 	}
 
-	public void help() {
-		System.out.println("main: ");
-		System.out.println("to add new Coupon type--> addCoupon");
-		System.out.println("to update Coupon type--> updateCoupon");
-		System.out.println("to delete Coupon type--> deleteCoupon");
-		System.out.println("to get Company Coupons type--> CompanyCoupons");
-		System.out.println("to get Company Details type--> getCompany");
-		System.out.println("to get Company Id type--> getCompanyId");
-		System.out.println("for help type--> help  ");
+	public Coupon getOneCoupon(int id) throws CouponSystemException {
+		return companiesDao.getOneCoupon(id, companyId);
+
 	}
+
+//	public void help() {
+//		System.out.println("main: ");
+//		System.out.println("to add new Coupon type--> addCoupon");
+//		System.out.println("to update Coupon type--> updateCoupon");
+//		System.out.println("to delete Coupon type--> deleteCoupon");
+//		System.out.println("to get Company Coupons type--> CompanyCoupons");
+//		System.out.println("to get Company Details type--> getCompany");
+//		System.out.println("to get Company Id type--> getCompanyId");
+//		System.out.println("for help type--> help  ");
+//	}
 }
