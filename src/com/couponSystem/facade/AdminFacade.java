@@ -59,7 +59,7 @@ public class AdminFacade extends ClientFacade {
 		}
 	}
 
-	public void updateCompany(Company company) throws CouponSystemException {
+	public void updateCompany(Company company, String oldEmail, String oldPassword) throws CouponSystemException {
 		System.out.print("enter the current email: ");
 		String oEmail = sc.nextLine();
 		System.out.print("enter current password: ");

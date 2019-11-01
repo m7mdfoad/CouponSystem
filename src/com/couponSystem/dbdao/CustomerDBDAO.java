@@ -94,7 +94,7 @@ public class CustomerDBDAO implements CustomersDAO {
 				pstmt.setString(2, customer.getLastName());
 				pstmt.setString(3, customer.getEmail());
 				pstmt.setString(4, customer.getPassword());
-				pstmt.setInt(5, customer.getId());
+				pstmt.setInt(5, id);
 				pstmt.executeUpdate();
 				System.out.println("customer " + customer.getId() + " updated successfully");
 			} catch (SQLException e) {

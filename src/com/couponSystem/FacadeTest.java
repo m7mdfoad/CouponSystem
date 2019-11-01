@@ -7,6 +7,7 @@ import java.sql.Date;
 
 import com.couponSystem.beans.Category;
 import com.couponSystem.beans.Coupon;
+import com.couponSystem.beans.Customer;
 import com.couponSystem.classes.CouponSystemException;
 import com.couponSystem.dao.CompaniesDAO;
 import com.couponSystem.dao.CouponsDAO;
@@ -87,13 +88,13 @@ public class FacadeTest {
 //			e.printStackTrace();
 //		}
 //		passed
-//		Customer customer = new Customer(1, "muhammad", "abu alhija", "muh11@gmail.com", "m1123");
-//		try {
-//			adminFacade.updateCustomer(customer);
-//		} catch (CouponSystemException e) {
+		Customer customer = new Customer(1, "muhammad", "abu alhija", "muh11@gmail.com", "m1123");
+		try {
+			adminFacade.updateCustomer(customer);
+		} catch (CouponSystemException e) {
 
-//			e.printStackTrace();
-//		}
+			e.printStackTrace();
+		}
 //		passed
 //		try {
 //			adminFacade.isCustomerExists("muh@gmail.com", "m123");

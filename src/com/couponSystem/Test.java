@@ -185,7 +185,7 @@ public class Test {
 							String password1 = sc.nextLine();
 
 							Company company = new Company(id, name1, email1, password1);
-							af.updateCompany(company);
+							af.updateCompany(company, user, pass);
 						} else {
 							System.out.println("company dosn't exists");
 						}

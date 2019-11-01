@@ -91,7 +91,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
 			pstmt.setString(1, company.getName());
 			pstmt.setString(2, company.getEmail());
 			pstmt.setString(3, company.getPassword());
-			pstmt.setInt(4, company.getId());
+			pstmt.setInt(4, id);
 			pstmt.executeUpdate();
 
 			System.out.println("company updated successfully");
